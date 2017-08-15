@@ -1,10 +1,12 @@
 <template>
   <div id="app">
+    <appbar></appbar>
     <div class="board-wrapper">
       <controlboard class="controlboard"></controlboard>
       <flowboard class="flowboard"></flowboard>
     </div>
     <bottomboard class="bottomboard"></bottomboard>
+    <bottom></bottom>
   </div>
 </template>
 
@@ -13,6 +15,8 @@
   import flowboard from './components/flowboard/flowboard.vue'
   import controlboard from './components/controlboard/controlboard.vue'
   import bottomboard from './components/bottominput/bottominput.vue'
+  import appbar from './components/header/appbar.vue'
+  import bottom from './components/footer/bottom.vue'
 
   export default {
     name: 'app',
@@ -28,29 +32,39 @@
     components: {
       flowboard,
       controlboard,
-      bottomboard
+      bottomboard,
+      appbar,
+      bottom
     }
   }
 </script>
 
 <style lang="less">
-#app {
-  .board-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    .controlboard {
-      /*flex: 0;*/
-      width: 45%;
+  @import "assets/css/_base";
+  #app {
+    background: @midlleWhite;
+    .board-wrapper {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 30px;
+      .controlboard {
+        background: @White;
+        width: 45%;
+        height: 700px;
+      }
+      .flowboard {
+        background: @White;
+        margin-left: 20px;
+        /*flex: 0;*/
+        width: 45%;
+        height: 700px;
+      }
     }
-    .flowboard {
-      /*flex: 0;*/
-      width: 45%;
-      margin-left: 20px;
+    .bottomboard {
+      margin: 30px auto 30px auto;
+      width: 90%;
+      background: @White;
     }
   }
-  .bottomboard {
-    display: block;
-  }
-}
 </style>

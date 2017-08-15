@@ -1,28 +1,28 @@
 <template>
   <div class="control-board-wrapper">
-    <div class="update-info-wrapper">
-      <h1>更新信息提示</h1>
-      <div class="total-count">
-        <label for="">总数:</label>
-        <span>{{ `[35]` }}</span>
-      </div>
-      <div class="current">
-        <label for="">当前</label>
-        <span>{{ `增[0]` }}</span><span>{{ `增[0]` }}</span><span>{{ `增[0]` }}</span><span>{{ `增[0]` }}</span><span>{{ `增[0]` }}</span>
-      </div>
-      <div></div>
-    </div>
-    <div class="operate-wrapper"></div>
+    <updateinfo></updateinfo>
+    <operateinfo></operateinfo>
   </div>
 </template>
 
 <script>
+  import operateinfo from './comp/operateinfo.vue'
+  import updateinfo from './comp/updateinfo.vue'
   export default {
     name: 'controlboard',
-    props: {}
+    props: {},
+    components: {
+      operateinfo,
+      updateinfo
+    }
   }
 </script>
 
-<style>
-
+<style lang="less">
+  .control-board-wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 2px;
+    box-shadow: -1px -1px 5px #888888;
+  }
 </style>
